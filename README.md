@@ -4,7 +4,7 @@ Oct 21, 2026 - Version 1.0
 
 ## Why this matters
 
-Python virtual environments on Ubuntu and Red Hat must be updated to stop trusting the compromised eMudhra certificates. That means patching the OS trust store and upgrading `pip` and `certifi` inside every virtual environment.
+Python virtual environments on Ubuntu, Red Hat and other Linux variants must be updated to stop trusting the compromised eMudhra certificates. That means patching the OS trust store and upgrading `pip` and `certifi` inside every virtual environment.
 
 On October 17, 2026, Mozilla [received a report](https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/) that the private keys of eight eMudhra intermediate certificate authorities were compromised. An attacker holding them can issue a trusted certificate for any website, including Qualys API endpoints, and intercept TLS traffic. Python applications trust two sources of root certificates: the operating system store and the `certifi` bundle inside each virtual environment (pip carries its own copy too). Both must be fixed.
 
