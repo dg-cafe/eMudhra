@@ -8,7 +8,7 @@ Python virtual environments on Ubuntu, Red Hat and other Linux variants must be 
 
 - On October 17, 2026, Mozilla [received a report](https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/) that the private keys of eight eMudhra intermediate certificate authorities were compromised. An attacker holding them can issue a trusted certificate for any website, including Qualys API endpoints, and intercept TLS traffic. Python applications trust two sources of root certificates: the operating system store and the `certifi` bundle inside each virtual environment (pip carries its own copy too). Both must be fixed.
 
-- On October 20, 2026, pypi.org reported the issue along with potential solutions. [pypi.org eMudhra solutions](https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576) which triggered this guidance.
+- On October 20, 2026, pypi.org reported the issue along with potential solutions. [pypi.org eMudhra solutions](https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576) triggered this guidance.
 
 Four steps:
 
