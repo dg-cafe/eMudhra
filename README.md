@@ -49,7 +49,7 @@ EOF
 Any line that prints `VULNERABLE` needs fixing. Upgrade both packages in place:
 
 ```bash
-python3 -m pip install --upgrade pip "certifi>=2026.10.19"
+python3 -m pip install --upgrade "pip>=26.2.2" "certifi>=2026.10.19"
 ```
 
 Repeat for every virtual environment on the host, including those used by cron jobs and services. Then rerun the check. QualysETL users should follow Step 3 instead of upgrading in place.
