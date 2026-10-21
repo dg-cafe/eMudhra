@@ -56,7 +56,7 @@ Repeat for every virtual environment on the host, including those used by cron j
 
 ## Step 3: Optional Step - QualysETL users — reinstall QualysETL
 
-Once the OS is patched, the official QualysETL install-or-upgrade instructions bring the QualysETL virtual environment up to current package versions. QualysETL calls the Qualys API through `requests`, which trusts the `certifi` bundle in the virtual environment, so this step protects QualysETL's API traffic by upgrading `certifi` and `pip`.
+Once the OS is patched, if the command `python3 -m pip install --upgrade "pip>=26.2.2" "certifi>=2026.10.19"` executed in your python virtual environment did not result in any issues, then you can go onto next step.  To be cautious, the official QualysETL install-or-upgrade instructions bring the QualysETL virtual environment up to current package versions. QualysETL calls the Qualys API through `requests`, which trusts the `certifi` bundle in the virtual environment, so this step protects QualysETL's API traffic by upgrading `certifi` and `pip`.
 
 The installer works in two stages:
 
