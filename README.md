@@ -11,8 +11,8 @@ On October 17, 2026, Mozilla [received a report](https://blog.mozilla.org/securi
 Four steps:
 
 1. Follow your Corporate Patch Instructions for Red Hat or Ubuntu.
-2. Check each Python virtual environment.
-3. QualysETL users: reinstall QualysETL.
+2. Check each Python virtual environment and upgrade pip and certifi.
+3. QualysETL users: optionally reinstall QualysETL.
 4. Validate with `pip list` that `pip` and `certifi` are at the latest versions.
 
 ## Step 1: Infrastructure team patches the OS
@@ -57,7 +57,7 @@ Repeat for every virtual environment on the host, including those used by cron j
 
 ## Step 3: Optional Step - QualysETL users — reinstall QualysETL
 
-Once the OS is patched, if the command `python3 -m pip install --upgrade "pip>=26.2.2" "certifi>=2026.10.19"` executed in your python virtual environment did not result in any issues, then you can go onto next step.  To be cautious, the official QualysETL install-or-upgrade instructions bring the QualysETL virtual environment up to current package versions. QualysETL calls the Qualys API through `requests`, which trusts the `certifi` bundle in the virtual environment, so this step protects QualysETL's API traffic by upgrading `certifi` and `pip`.
+Once the OS is patched, if the commands from Step 2 executed in your python virtual environment did not result in any issues, then you can go onto next step.  To be cautious, the official QualysETL install-or-upgrade instructions have been updated below to bring the QualysETL virtual environment up to current package versions. QualysETL calls the Qualys API through `requests`, which trusts the `certifi` bundle in the virtual environment, so this step protects QualysETL's API traffic by upgrading `certifi` and `pip`.
 
 The installer works in two stages:
 
@@ -67,7 +67,7 @@ The installer works in two stages:
 Follow these instructions to execute standard [QualysETL install-or-upgrade instructions on PyPI](https://pypi.org/project/qualysetl/):
 
 1. Log in as the non-root user that runs QualysETL and ensure no QualysETL applications are running.
-2. Exit any active virtual environment, then move the current /opt/qetl/qetl_venv to backup /opt/qetl/qetl_venv_backup_01
+2. Exit any active virtual environment, then move the current /opt/qetl/qetl_venv to backup /opt/qetl/qetl_venv_backup_01 for reference.
 
    ```bash
    deactivate
@@ -116,19 +116,6 @@ Expected output (your versions may be newer):
 ```
 certifi    2026.10.19
 pip        26.2.2
-```
-
-To see whether anything newer is available, run:
-
-```bash
-pip list --outdated | grep -Ei '^(pip|certifi) '
-```
-
-No output means both packages are at the latest version. If `certifi` or `pip` is listed, which is most likely on an existing QualysETL installation, upgrade them directly in the QualysETL virtual environment and validate again:
-
-```bash
-/opt/qetl/qetl_venv/bin/python -m pip install --upgrade pip certifi
-pip list | grep -Ei '^(pip|certifi) '
 ```
 
 | Package | Minimum safe version |
