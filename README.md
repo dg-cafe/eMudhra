@@ -49,6 +49,7 @@ EOF
 Any line that prints `VULNERABLE` needs fixing. Upgrade both packages in place:
 
 ```bash
+python -m pip install "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
 python3 -m pip install --upgrade "pip>=26.2.2" "certifi>=2026.10.19"
 ```
 
@@ -81,9 +82,14 @@ Follow these instructions to execute standard [QualysETL install-or-upgrade inst
    [ -n "$VIRTUAL_ENV" ] && { echo "Please deactivate the virtual environment and rerun this script."; exit 1; }
    python3 -m venv ~/qetl_venv_tmp || { echo "Could not create virtual environment. Determine issue with python3 -m venv ~/qetl_venv_tmp and rerun this script."; exit 1; }
    source ~/qetl_venv_tmp/bin/activate
+   python -m pip install "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
+   python3 -m pip install --upgrade "pip>=26.2.2" "certifi>=2026.10.19"
    python3 -m pip install --upgrade qualysetl
    deactivate
    ~/qetl_venv_tmp/bin/qetl_setup_python_venv /opt/qetl
+   source /opt/qetl/qetl_venv/bin/activate
+   python -m pip install "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
+   python3 -m pip install --upgrade "pip>=26.2.2" "certifi>=2026.10.19"
    echo "Follow instructions output from qetl_setup_python_venv"
    ```
 
