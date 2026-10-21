@@ -1,6 +1,6 @@
 # eMudhra CA Compromise: Securing Python Virtual Environments on Ubuntu and RHEL
 
-Oct 21, 2026
+Oct 21, 2026 - Version 1.0
 
 ## Why this matters
 
