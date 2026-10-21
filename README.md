@@ -54,7 +54,7 @@ python3 -m pip install --upgrade pip "certifi>=2026.10.19"
 
 Repeat for every virtual environment on the host, including those used by cron jobs and services. Then rerun the check. QualysETL users should follow Step 3 instead of upgrading in place.
 
-## Step 3: QualysETL users — reinstall QualysETL
+## Step 3: Optional Step - QualysETL users — reinstall QualysETL
 
 Once the OS is patched, the official QualysETL install-or-upgrade instructions bring the QualysETL virtual environment up to current package versions. QualysETL calls the Qualys API through `requests`, which trusts the `certifi` bundle in the virtual environment, so this step protects QualysETL's API traffic by upgrading `certifi` and `pip`.
 
@@ -88,12 +88,7 @@ Follow the [QualysETL install-or-upgrade instructions on PyPI](https://pypi.org/
    ```
 
 4. Answer `yes` when `qetl_setup_python_venv` asks to create the Python virtual environment. Your data and credentials in `/opt/qetl/users` are not touched.
-5. Test connectivity to Qualys with your existing user:
 
-   ```bash
-   source /opt/qetl/qetl_venv/bin/activate
-   qetl_manage_user -u /opt/qetl/users/[your user] -t
-   ```
 
 **Existing installations:** We've removed `/opt/qetl/qetl_venv` in step 2 above to ensure a fresh upgrade of requests and certifi and pip.
 
