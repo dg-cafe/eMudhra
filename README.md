@@ -10,7 +10,7 @@ On October 17, 2026, Mozilla [received a report](https://blog.mozilla.org/securi
 
 Four steps:
 
-1. Follow your Corporate Patch Instructions for Red Hat or Ubuntu.
+1. Follow your Corporate Patch Instructions for Red Hat or Ubuntu.  Ensure you are at Python 3.10 or greater before proceeding.
 2. Check each Python virtual environment and upgrade pip and certifi.
 3. QualysETL users: optionally reinstall QualysETL.
 4. Validate with `pip list` that `pip` and `certifi` are at the latest versions.
@@ -35,6 +35,7 @@ A virtual environment is vulnerable if its `certifi` is older than **2026.10.19*
 Activate the environment and check both bundles:
 
 ```bash
+python3 --version  # Python versions less than 3.10 are EOL and no longer supported for pip.  Upgrade to python 3.10 before proceeding.
 source /path/to/venv/bin/activate
 
 python3 - <<'EOF'
