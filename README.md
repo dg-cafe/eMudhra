@@ -63,7 +63,7 @@ The installer works in two stages:
 - It creates a temporary virtual environment (`~/qetl_venv_tmp`) and installs the latest `qualysetl` from PyPI.
 - It then runs `qetl_setup_python_venv`, which creates `/opt/qetl/qetl_venv` and upgrades `pip`, `setuptools`, `wheel`, `requests`, `boto3` and QualysETL's other dependencies from PyPI before installing QualysETL. On a new virtual environment, `certifi` is installed at its current version as a dependency of `requests`.
 
-Follow the [QualysETL install-or-upgrade instructions on PyPI](https://pypi.org/project/qualysetl/):
+Follow these instructions to execute standard [QualysETL install-or-upgrade instructions on PyPI](https://pypi.org/project/qualysetl/):
 
 1. Log in as the non-root user that runs QualysETL and ensure no QualysETL applications are running.
 2. Exit any active virtual environment, then move the current /opt/qetl/qetl_venv to backup /opt/qetl/qetl_venv_backup_01
